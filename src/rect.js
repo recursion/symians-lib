@@ -32,6 +32,20 @@ export default class Rect {
   }
 
   /**
+   * determines if a given point is within its bounds
+   * @param {Point} point - an object with x, y coords
+   * @returns {Boolean} - true if in bounds, otherwise false
+   */
+  inBounds(point){
+    if (point.x > this.x && point.x < this.width){
+      if (point.y > this.y && point.y < this.height){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * return a new rectangle created from points
    */
   static fromPoints(startPoint, endPoint){

@@ -14,10 +14,15 @@ export default class Zone {
    *@param {number} width - the total width of the zone
    *@param {number} height - the total height of the zone
    */
-  constructor(width=0, height=0){
+  constructor(width=0, height=0, genMap=false){
     this.width = width;
     this.height = height;
-    this.locations = Zone.createMap(width, height);
+    this.mobs = [];
+    if (genMap){
+      this.locations = Zone.createMap(width, height);
+    } else {
+      this.locations = [];
+    }
   }
 
   /**

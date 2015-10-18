@@ -40,5 +40,17 @@ describe('Rect', ()=> {
       expect(TS).to.be.instanceof(Rect);
     });
   });
+  describe('#inBounds', ()=>{
+    it('Returns true if the given point is within its bounds', ()=>{
+      rect = new Rect(0, 0, 10, 10);
+      const point = {x: 1, y: 1};
+      expect(rect.inBounds(point)).to.equal(true);
+    });
+    it('Returns false if the given point is not within its bounds', ()=>{
+      rect = new Rect(0, 0, 10, 10);
+      const point = {x: 111, y: 11};
+      expect(rect.inBounds(point)).to.equal(false);
+    });
+  });
 });
 
